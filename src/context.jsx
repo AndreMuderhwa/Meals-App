@@ -30,6 +30,7 @@ const AppProvider=({children})=>{
     const fetchRandomMeals=()=>{
         fetchMeals(randomMealUrl)
     }
+    //It is not good to use multiple useEffect in the component 
     useEffect(()=>{
         fetchMeals(allMealsUrl)
     },[])
