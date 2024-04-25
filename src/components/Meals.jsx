@@ -1,5 +1,6 @@
 import { BsHandThumbsUpFill } from "react-icons/bs";
 import {useGlobalContext} from '../context';
+import Loader from "../loader/Loader";
 
 const Meals=()=>{
     const { meals, loading }=useGlobalContext()
@@ -7,7 +8,7 @@ const Meals=()=>{
     if(loading){
         return (
             <section className="section">
-                <h4>Loading ... </h4>
+                <Loader/>
             </section>
         )
     }
