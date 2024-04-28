@@ -3,7 +3,7 @@ import {useGlobalContext} from '../context';
 import Loader from "../loader/Loader";
 
 const Meals=()=>{
-    const { meals, loading }=useGlobalContext()
+    const { meals, loading, selectMeal,addToFavorites }=useGlobalContext()
 
     if(loading){
         return (
@@ -24,10 +24,11 @@ const Meals=()=>{
                     meals.map((meal)=>{
                         const {idMeal,strMeal:title,strMealThumb:image}=meal
                         return <article key={idMeal} className='single-meal'>
-                            <img src={image} className='img' alt=''/>
+                            {/* ici on a appele la fonction selectMeal as arrow function pour eviter que chaque fois que l'on va load ce component on puisse appeler la fonction */}
+                            <img src={image} className='img' alt='' onClick={()=> selectMeal(idMeal)}/>
                             <footer>
                                 <h5>{title}</h5>
-                                <button className='like-btn'><BsHandThumbsUpFill/></button>
+                                <button className='like-btn' onClick={()=>addToFavorites(idMeal)}><BsHandThumbsUpFill/></button>
                             </footer>
                                 
 
